@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main>
+    <main className="w-full bg-background">
       hola
     </main>
   );
