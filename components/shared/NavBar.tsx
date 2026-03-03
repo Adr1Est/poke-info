@@ -22,13 +22,13 @@ export function NavBar() {
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-              <Link href="/">Home</Link>
+              <Link href="/" className="bg-popover">Home</Link>
             </NavigationMenuLink>
             <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-              <Link href="/">LINK 2</Link>
+              <Link href="/" className="bg-popover">LINK 2</Link>
             </NavigationMenuLink>
             <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-              <Link href="/">LINK 3</Link>
+              <Link href="/" className="bg-popover">LINK 3</Link>
             </NavigationMenuLink>
           </NavigationMenuContent>
         </NavigationMenuItem>
