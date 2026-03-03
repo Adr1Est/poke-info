@@ -1,6 +1,6 @@
 import CustomLink from "@/components/shared/CustomLink";
 import ThemeSelector from "@/components/shared/ThemeSelector";
-import { Home, List, Search } from "lucide-react";
+import { Home, Info, List, Search } from "lucide-react";
 import { ReactNode } from "react";
 
 export default function Layout({ children }: { children: ReactNode }){
@@ -14,6 +14,9 @@ export default function Layout({ children }: { children: ReactNode }){
         
         <CustomLink href="/" styles="flex gap-1">
           <Home/> <span className="sr-only md:not-sr-only">Home</span>
+        </CustomLink>
+        <CustomLink href="/dashboard" styles="flex gap-1">
+          <Info /> <span className="sr-only md:not-sr-only">Start</span>
         </CustomLink>
         <CustomLink href="/dashboard/list" styles="flex gap-1">
           <List /> <span className="sr-only md:not-sr-only">Poke list</span>
