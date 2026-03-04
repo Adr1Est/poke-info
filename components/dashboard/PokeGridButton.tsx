@@ -3,13 +3,15 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 interface Props {
   direction: "l" | "r";
   onClick: () => void;
+  isDisabled: boolean;
 }
 
-export default function PokeGridButton({direction, onClick}: Props){
+export default function PokeGridButton({direction, onClick, isDisabled}: Props){
   return(
     <button
       onClick={onClick}
-      className="border rounded-full p-1 hover:bg-input"
+      className={`border rounded-full p-1 ${!isDisabled && "hover:bg-input"}`}
+      disabled={isDisabled}
     >
       {
         direction === "l"
