@@ -1,7 +1,13 @@
-export default function Dashboard(){
+import PokeGrid from "@/components/dashboard/PokeGrid";
+import { getQueryClient } from "@/lib/get-query-client";
+import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
+
+export default function DashboardList(){
+  const queryClient = getQueryClient()
+
   return (
-    <div>
-      <p>/dashboard/list</p>
-    </div>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <PokeGrid />
+    </HydrationBoundary>
   )
 }
