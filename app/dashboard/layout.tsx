@@ -7,7 +7,7 @@ export default function Layout({ children }: { children: ReactNode }){
   return (
     <div className="w-full min-h-screen flex flex-col-reverse md:flex-row">
 
-      <div className="w-full md:w-1/4 md:min-h-screen flex md:flex-col items-center md:items-start justify-center gap-3 p-5">
+      <div className="w-full md:w-1/6 md:min-h-screen flex md:flex-col items-center md:items-start justify-center gap-3 p-5">
         <div className="md:self-end">
           <ThemeSelector />
         </div>
@@ -26,7 +26,7 @@ export default function Layout({ children }: { children: ReactNode }){
         </CustomLink>
       </div>
 
-      <div className="w-3/4">
+      <div className="w-5/6">
         {children}
       </div>
       
