@@ -1,7 +1,20 @@
-export default function Find(){
+import FindGrid from "@/components/dashboard/FindGrid";
+import { getQueryClient } from "@/lib/get-query-client";
+import { getAllPokemon } from "@/services/getPokemonList";
+import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
+
+export default async function Find(){
+  const queryClient = getQueryClient()
+
+  await queryClient.prefetchQuery({
+    queryKey: ["allPokes"],
+    queryFn: getAllPokemon,
+  })
+
   return (
-    <div className="relative flex flex-col items-center justify-center w-full md:w-9/10 gap-1">
-      <p>/find</p>
-    </div>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <FindGrid />  
+    </HydrationBoundary>
+      
   )
 }
