@@ -1,7 +1,24 @@
 import { Input } from "@/components/ui/input"
+import { Field, FieldLabel } from "@/components/ui/field"
 
-export default function CustomInput(){
+interface Props {
+  id: string;
+  type: string;
+  placeholder: string;
+  title: string;
+}
+
+export default function CustomInput({ id, type, placeholder, title }: Props){
   return (
-    <Input />
+    <Field>
+      <FieldLabel htmlFor={id}>
+        {title}
+      </FieldLabel>
+      <Input 
+        id={id}
+        type={type}
+        placeholder={placeholder}
+      />
+    </Field>
   )
 }

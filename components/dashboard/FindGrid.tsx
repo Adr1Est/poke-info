@@ -33,7 +33,12 @@ export default function FindGrid(){
   return(
     <div className="relative flex flex-col items-center justify-center w-full p-2 md:p-0 md:w-9/10 gap-1">
       <h1 className="font-semibold text-xl">{`${data.count} Pokemon`}</h1>
-      <CustomInput />
+      <CustomInput 
+        id="pokemonFilter"
+        type="text"
+        placeholder="rayquaza, deoxys, pikachu..."
+        title="Search Pokemon"
+      />
       <div className="w-full grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 overflow-y-auto h-100 md:h-150">
         {
           data.results.map((p: PokemonFromList) => (
