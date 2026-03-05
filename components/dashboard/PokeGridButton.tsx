@@ -15,8 +15,8 @@ export default function PokeGridButton({direction, onClick, isDisabled}: Props){
     >
       {
         direction === "l"
-          ? <ChevronLeft />
-          : <ChevronRight />
+          ? <ChevronLeft className={`${isDisabled && "text-stone-700"}`}/>
+          : <ChevronRight className={`${isDisabled && "text-stone-700"}`}/>
       }
     </button>
   )
