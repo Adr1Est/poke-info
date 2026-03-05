@@ -19,7 +19,7 @@ export default function PokeGrid({ apiUrl }: { apiUrl: string }){
 
   if(isLoading){
     return (
-      <div className="relative flex flex-row items-center justify-center w-9/10 gap-1">
+      <div className="relative flex flex-row items-center justify-center w-full md:w-9/10 gap-1">
        <LoaderCircle /> Loading... 
       </div>
     )
@@ -27,7 +27,7 @@ export default function PokeGrid({ apiUrl }: { apiUrl: string }){
 
   if(error){
     return (
-      <div className="relative flex flex-row items-center justify-center w-9/10 gap-1">
+      <div className="relative flex flex-row items-center justify-center w-full md:w-9/10 gap-1">
        <TriangleAlert /> Error fetching list
       </div>
     )
