@@ -7,10 +7,10 @@ import { PokemonFromList } from "@/types/pokeTypes";
 import { LoaderCircle, TriangleAlert } from "lucide-react";
 import { useState } from "react";
 
-const API_URL = "https://pokeapi.co/api/v2/pokemon/"
 
-export default function PokeGrid(){
-  const [url, setUrl] = useState(API_URL)
+
+export default function PokeGrid({ apiUrl }: { apiUrl: string }){
+  const [url, setUrl] = useState(apiUrl)
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["list", url],
