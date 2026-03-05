@@ -15,6 +15,5 @@ export default async function Find(){
     <HydrationBoundary state={dehydrate(queryClient)}>
       <FindGrid />  
     </HydrationBoundary>
-      
   )
 }
