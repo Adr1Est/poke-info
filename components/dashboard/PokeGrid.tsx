@@ -34,7 +34,7 @@ export default function PokeGrid({ apiUrl }: { apiUrl: string }){
   }
 
   return(
-    <div className="relative flex flex-row items-center justify-center w-9/10 gap-1">
+    <div className="relative flex flex-row items-center justify-center w-full md:w-9/10 gap-1">
 
       <PokeGridButton 
         direction="l" 
