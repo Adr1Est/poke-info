@@ -7,3 +7,13 @@ export const getPokeList = async ({ queryKey }: { queryKey: [string, string] }) 
 
   return response.json()
 }
+
+export const getPokeInfo = async ({ queryKey }: { queryKey: [string, string] }) => {
+  const [, pokemon] = queryKey
+
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+
+  if(!response.ok) throw new Error("Error fetching Pokemon info")
+
+  return response.json()
+}
