@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 
 export default function Layout({ children }: { children: ReactNode }){
   return (
-    <div className="w-full h-dvh flex flex-col-reverse md:flex-row">
+    <main className="w-full h-dvh flex flex-col-reverse md:flex-row">
 
       <div className="w-full md:w-1/6 flex md:flex-col items-center md:items-start justify-center gap-3 p-5">
         <div className="md:self-end">
@@ -30,6 +30,6 @@ export default function Layout({ children }: { children: ReactNode }){
         {children}
       </div>
       
-    </div>
+    </main>
   )
 }
