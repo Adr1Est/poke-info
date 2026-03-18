@@ -13,8 +13,8 @@ COPY package.json pnpm-lock.yaml .npmrc* ./
 
 RUN pnpm install --frozen-lockfile
 
-# ─── Stage 2: builder ─────────────────────────────────────────────────────────
-FROM base AS builder
+# ─── Stage 2: tester ──────────────────────────────────────────────────────────
+FROM base AS tester
 
 RUN corepack enable
 
@@ -23,15 +23,25 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+RUN pnpm test --watchAll=false --passWithNoTests
+
+# ─── Stage 3: builder ─────────────────────────────────────────────────────────
+FROM base AS builder
+
+RUN corepack enable
+
+WORKDIR /app
+
+# Gate: si el tester falló, este COPY aborta el build
+COPY --from=tester /app/package.json /tmp/test-gate
+
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NEXT_PRIVATE_STANDALONE=true
 
-RUN corepack enable pnpm && pnpm run build
-
-# ─── Stage 3: tester ──────────────────────────────────────────────────────────
-FROM builder AS tester
-
-RUN pnpm test -- --watchAll=false --passWithNoTests
+RUN pnpm run build
 
 # ─── Stage 4: runner ──────────────────────────────────────────────────────────
 FROM base AS runner
