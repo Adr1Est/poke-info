@@ -25,7 +25,7 @@ export function NavBar() {
               <Link href="/dashboard" className="bg-popover">Dashboard</Link>
             </NavigationMenuLink>
             <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-              <Link href="/" className="bg-popover">Team</Link>
+              <Link href="/team" className="bg-popover">Team</Link>
             </NavigationMenuLink>
           </NavigationMenuContent>
         </NavigationMenuItem>
