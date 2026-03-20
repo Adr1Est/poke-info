@@ -26,7 +26,7 @@ export default function Layout({ children }: { children: ReactNode }){
         </CustomLink>
       </div>
 
-      <div className="w-full md:w-5/6 flex-1 flex items-center justify-center">
+      <div className="w-full flex-1 flex lg:items-center justify-center overflow-y-auto min-h-0">
         {children}
       </div>
       

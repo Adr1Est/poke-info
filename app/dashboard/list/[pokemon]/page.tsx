@@ -37,7 +37,7 @@ export default function PokemonCard(){
   }
 
   return(
-    <div className="w-full md:w-auto p-3 md:p-0 flex flex-col gap-3 h-150 overflow-y-auto">
+    <div className="w-auto p-3 md:p-0 flex flex-col gap-3">
 
       <div className={`flex flex-col md:flex-row items-center gap-5 ${glassmorphism}`}>
         <div className="relative w-40 h-40 aspect-square">

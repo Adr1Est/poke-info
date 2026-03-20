@@ -40,7 +40,7 @@ export default function Dashboard(){
 
   return (
     <section 
-      className="relative flex flex-col items-center md:items-start justify-center w-full md:w-auto gap-3"
+      className="relative flex flex-col items-center md:justify-center w-full md:w-auto gap-3"
     >
       <h1 className="font-semibold text-4xl bg-linear-to-r from-neutral-400 to-neutral-500 bg-clip-text text-transparent">
         Welcome to Poke Info
