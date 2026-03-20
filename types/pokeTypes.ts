@@ -1,3 +1,9 @@
+export interface FavPokemon {
+  id: string;
+  name: string;
+  imageUrl: string;
+}
+
 export interface PokemonFromList {
   name: string;
   url: string;
