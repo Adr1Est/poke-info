@@ -11,6 +11,8 @@ import { useParams } from "next/navigation"
 export default function PokemonCard(){
   const params = useParams()
   const pokemon = params.pokemon as string
+  // Se utiliza para rerenderizar el componente al cambiar su estado
+  const favorites = useFavPokemonList((state) => state.favorites)
   const isFavorite = useFavPokemonList((state) => state.isFavorite)
   const addPokemon = useFavPokemonList((state) => state.addPokemon)
 
