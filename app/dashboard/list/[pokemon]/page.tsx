@@ -1,15 +1,25 @@
 "use client"
 import { capitalize } from "@/lib/capitalize"
 import { getPokeInfo } from "@/services/getPokemonList"
+import { useFavPokemonList } from "@/store"
 import { PokeMoves, PokeStats } from "@/types/pokeTypes"
 import { useQuery } from "@tanstack/react-query"
-import { LoaderCircle, TriangleAlert } from "lucide-react"
+import { Heart, HeartOff, LoaderCircle, TriangleAlert } from "lucide-react"
 import Image from "next/image"
 import { useParams } from "next/navigation"
 
 export default function PokemonCard(){
   const params = useParams()
   const pokemon = params.pokemon as string
+  const isFavorite = useFavPokemonList((state) => state.isFavorite)
+  const addPokemon = useFavPokemonList((state) => state.addPokemon)
+
+  const handleClick = () => {
+    addPokemon(
+      data.name, 
+      data.sprites.other["official-artwork"].front_default
+    )
+  }
 
   const glassmorphism = "p-2 bg-neutral-900 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-neutral-700"
 
@@ -39,7 +49,7 @@ export default function PokemonCard(){
   return(
     <div className="w-auto p-3 md:p-0 flex flex-col gap-3">
 
-      <div className={`flex flex-col md:flex-row items-center gap-5 ${glassmorphism}`}>
+      <div className={`relative flex flex-col md:flex-row items-center gap-5 ${glassmorphism}`}>
         <div className="relative w-40 h-40 aspect-square">
           <Image
             src={data.sprites.other["official-artwork"].front_default} 
@@ -47,7 +57,23 @@ export default function PokemonCard(){
             fill
           />
         </div>
-        <h1 className="text-2xl font-semibold">{capitalize(data.species.name)}</h1>
+        <h1 className="text-2xl font-semibold">{capitalize(data.name)}</h1>
+        <button 
+          className={`absolute top-5 right-5 
+            ${
+              !isFavorite(data.name) 
+                ? "hover:scale-130 transition-all duration-500 hover:text-red-500"
+                : "text-neutral-600"
+            }`}
+          onClick={handleClick}
+          disabled={isFavorite(data.name)}
+        >
+          {
+            isFavorite(data.name)
+              ? <HeartOff />
+              : <Heart />
+          }
+        </button>
       </div>
 
       <div className={`flex flex-col gap-1 items-center md:items-start ${glassmorphism}`}>
