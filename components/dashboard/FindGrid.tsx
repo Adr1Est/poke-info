@@ -4,7 +4,7 @@ import { getAllPokemon } from "@/services/getPokemonList"
 import { PokemonFromList } from "@/types/pokeTypes"
 import { useQuery } from "@tanstack/react-query"
 import { Delete, LoaderCircle, TriangleAlert } from "lucide-react"
-import PokeCardGrid from "./PokeCardGrid"
+import PokeCardGrid from "@/components/dashboard/PokeCardGrid"
 import { usePokemonFilter } from "@/store"
 
 export default function FindGrid(){
@@ -18,7 +18,7 @@ export default function FindGrid(){
 
   if(isLoading){
     return (
-      <div className="relative flex flex-row items-center justify-center w-full md:w-9/10 gap-1">
+      <div className="relative flex flex-row md:items-center md:justify-center w-full md:w-9/10 gap-1">
        <LoaderCircle /> 
        <h2>Loading... </h2>
       </div>
@@ -38,7 +38,7 @@ export default function FindGrid(){
     p.name.toLowerCase().includes(filter.toLowerCase()))
 
   return(
-    <div className="relative flex flex-col items-center justify-center w-full p-2 md:p-0 md:w-9/10 gap-1">
+    <div className="relative flex flex-col items-center w-full p-2 md:p-0 gap-1">
       <h1 className="font-semibold text-xl">{`${data.count} Pokemon`}</h1>
       <div className="w-full relative">
         <CustomInput 
